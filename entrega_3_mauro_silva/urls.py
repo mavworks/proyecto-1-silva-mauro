@@ -5,7 +5,6 @@ from entrega_3_mauro_silva import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('inicio/', views.inicio),
-    path("otra/", views.otro),
-    path('fecha-actual/', views.fecha)
+    
+    path("crear-producto/<str:tipo>/<int:precio>/", views.crear_producto)
 ]
