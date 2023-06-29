@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+<h2>Abrir<h2/>
+{% endblock titulo %}
+
+{% block mensaje_inicio %}
+Abrir Pista:
+{% endblock mensaje_inicio %}
+
+{% block contenido %}
+
+<form action='' method='POST'>
+    {% csrf_token %}
+    {{formulario}}
+    <button>Abrir Pista</button>
+    
+</form>
+
+
+{% endblock contenido %}

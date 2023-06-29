@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+<h2>Listado<h2/>
+{% endblock titulo %}
+
+{% block mensaje_inicio %}
+
+Listado de Personas en la fiesta:
+{% endblock mensaje_inicio %}
+
+{% block contenido %}
+<button><a class='navbar-brand' href= {% url 'inicio:dejar entrar persona' %}>Dejar entrar</a></button>
+
+<form action='' method='GET'>
+    {{formulario}}
+    <button>Buscar</button>
+</form>
+{% if personas %}
+{% for persona in personas %}
+<li>Nombre:{{persona.nombre}} - Edad: {{persona.edad}}</li>
+{% endfor %}
+{% else %}
+<p>No se encuentra en la fiesta.</p>
+{% endif %}
+{% endblock contenido %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+<h2>Dj<h2/>
+{% endblock titulo %}
+
+{% block mensaje_inicio %}
+Que toque:
+{% endblock mensaje_inicio %}
+
+{% block contenido %}
+
+<form action='' method='POST'>
+    {% csrf_token %}
+    {{formulario}}
+    <button>Hacer que toque</button>
+    
+</form>
+
+
+{% endblock contenido %}

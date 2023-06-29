@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+<h2>Ingresar Persona<h2/>
+{% endblock titulo %}
+
+{% block mensaje_inicio %}
+Dejar entrar persona:
+{% endblock mensaje_inicio %}
+
+{% block contenido %}
+
+<form action='' method='POST'>
+    {% csrf_token %}
+    {{formulario}}
+    <button>Dejar entrar</button>
+    
+</form>
+
+
+{% endblock contenido %}

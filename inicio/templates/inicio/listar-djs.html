@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+<h2>Listado<h2/>
+{% endblock titulo %}
+
+{% block mensaje_inicio %}
+
+Listado de Djs:
+{% endblock mensaje_inicio %}
+
+{% block contenido %}
+<button><a class='navbar-brand' href= {% url 'inicio:que toque' %}>Que Toque</a></button>
+
+<form action='' method='GET'>
+    {{formulario}}
+    <button>Buscar</button>
+</form>
+{% if djs %}
+{% for dj in djs %}
+<li>Nombre:{{dj.nombre}} Toca: {{dj.canciones}} Canciones</li>
+{% endfor %}
+{% else %}
+<p>No toca en la fiesta.</p>
+{% endif %}
+{% endblock contenido %}
