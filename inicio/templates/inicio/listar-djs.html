@@ -18,7 +18,10 @@ Listado de Djs:
 </form>
 {% if djs %}
 {% for dj in djs %}
-<li>Nombre:{{dj.nombre}} Toca: {{dj.canciones}} Canciones</li>
+<li>
+    {{dj}}
+    <a href={% url 'inicio:despedir dj' dj.id %}>Despedir</a>
+</li>
 {% endfor %}
 {% else %}
 <p>No toca en la fiesta.</p>

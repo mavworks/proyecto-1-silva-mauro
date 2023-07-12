@@ -18,7 +18,10 @@ Listado de Pistas en la fiesta:
 </form>
 {% if pistas %}
 {% for pista in pistas %}
-<li>Nombre:{{pista.nombre}} - Capacidad: {{pista.capacidad}}</li>
+<li>
+    {{pista}}
+    <a href={% url 'inicio:cerrar pista' pista.id %}>Cerrar</a>
+</li>
 {% endfor %}
 {% else %}
 <p>No se encuentra en la fiesta.</p>

@@ -1,13 +1,22 @@
 from django.db import models
 
-class Persona(models.Model):
+class Invitado(models.Model):
     nombre = models.CharField(max_length=20)
     edad = models.IntegerField()
+    
+    def __str__(self):
+        return f'Invitado: {self.nombre} - Edad: {self.edad}'
     
 class Dj(models.Model):
     nombre = models.CharField(max_length=20)
     canciones = models.IntegerField()
     
+    def __str__(self):
+        return f'Dj: {self.nombre} - Canciones: {self.canciones}'
+    
 class Pista(models.Model):
     nombre = models.CharField(max_length=20)
     capacidad = models.IntegerField()
+    
+    def __str__(self):
+        return f'Pista: {self.nombre} - Capacidad: {self.capacidad}'

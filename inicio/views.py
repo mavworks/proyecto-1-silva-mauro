@@ -1,38 +1,46 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.template import loader
-from inicio.models import Persona, Dj, Pista
-from inicio.form import EntrarPersonaFormulario, BuscarPersonaFormulario, QueToqueFormulario, SiTocaFormulario, AbrirPistaFormulario, BuscarPistaFormulario
+from inicio.models import Invitado, Dj, Pista
+from inicio.form import EntrarInvitadoFormulario, BuscarInvitadoFormulario, QueToqueFormulario, SiTocaFormulario, AbrirPistaFormulario, BuscarPistaFormulario
 
 def inicio(request):
     return render(request, 'inicio/inicio.html')
   
-#Personas
+#Invitados
   
-def dejar_entrar_persona(request):
+def dejar_entrar_invitado(request):
     
     if request.method =='POST':
-        formulario = EntrarPersonaFormulario(request.POST)
+        formulario = EntrarInvitadoFormulario(request.POST)
         
         if formulario.is_valid():
             info = formulario.cleaned_data
-            persona = Persona(nombre=info['nombre'], edad=info['edad'])
-            persona.save()
-            return redirect('inicio:listar personas')
+            invitado = Invitado(nombre=info['nombre'], edad=info['edad'])
+            invitado.save()
+            return redirect('inicio:listar invitados')
         else:
-            return render(request, 'inicio/listar-personas.html', {'formulario':formulario})
+            return render(request, 'inicio/listar-invitados.html', {'formulario':formulario})
         
-    formulario = EntrarPersonaFormulario()
+    formulario = EntrarInvitadoFormulario()
     return render(request, 'inicio/dejar-entrar.html', {'formulario':formulario})
 
-def listar_personas(request):
-    formulario = BuscarPersonaFormulario(request.GET)
+def listar_invitados(request):
+    formulario = BuscarInvitadoFormulario(request.GET)
     if formulario.is_valid():
         nombre_a_buscar = formulario.cleaned_data['nombre']
-        listado_de_personas = Persona.objects.filter(nombre__icontains=nombre_a_buscar)
+        listado_de_invitados = Invitado.objects.filter(nombre__icontains=nombre_a_buscar)
          
-    formulario = BuscarPersonaFormulario()
-    return render(request, 'inicio/listar-personas.html', {'formulario':formulario, 'personas':listado_de_personas})
+    formulario = BuscarInvitadoFormulario()
+    return render(request, 'inicio/listar-invitados.html', {'formulario':formulario, 'invitados':listado_de_invitados})
+
+def sacar_invitado(request, invitado_id):
+    invitado = Invitado.objects.get(id=invitado_id)
+    invitado.delete()
+    return redirect('inicio:listar invitados')
+
+def modificar_invitado(request):
+    return render()
 
 #Djs
 
@@ -62,6 +70,14 @@ def listar_djs(request):
     formulario = SiTocaFormulario()
     return render(request, 'inicio/listar-djs.html', {'formulario':formulario, 'djs':listado_de_djs})
 
+def despedir(request, dj_id):
+    dj = Dj.objects.get(id=dj_id)
+    dj.delete()
+    return redirect('inicio:listar djs')
+
+def modificar_dj(request):
+    return render()
+
 #Pistas
 
 def abrir_pista(request):
@@ -90,3 +106,10 @@ def listar_pistas(request):
     formulario = BuscarPistaFormulario()
     return render(request, 'inicio/listar-pistas.html', {'formulario':formulario, 'pistas':listado_de_pistas})
 
+def cerrar_pista(request, pista_id):
+    pista = Pista.objects.get(id=pista_id)
+    pista.delete()
+    return redirect('inicio:listar pistas')
+
+def modificar_pista(request):
+    return render()

@@ -1,10 +1,10 @@
 from django import forms
 #Persona
-class EntrarPersonaFormulario(forms.Form):
+class EntrarInvitadoFormulario(forms.Form):
     nombre = forms.CharField(max_length=20)
     edad = forms.IntegerField() 
     
-class BuscarPersonaFormulario(forms.Form):
+class BuscarInvitadoFormulario(forms.Form):
     nombre = forms.CharField(max_length=20, required=False)
 #Djs
 class QueToqueFormulario(forms.Form):
