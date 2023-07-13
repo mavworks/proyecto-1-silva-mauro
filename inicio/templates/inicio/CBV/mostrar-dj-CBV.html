@@ -5,17 +5,10 @@
 {% endblock titulo %}
 
 {% block mensaje_inicio %}
-Que toque:
+{{dj.nombre}}:
 {% endblock mensaje_inicio %}
 
 {% block contenido %}
-
-<form action='' method='POST'>
-    {% csrf_token %}
-    {{formulario}}
-    <button>Hacer que toque</button>
-    
-</form>
-
-
+<li>Canciones que toca: {{dj.canciones}}</li>
+<li>Descripción: {{dj.descripcion}}</li>
 {% endblock contenido %}

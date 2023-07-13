@@ -1,13 +1,14 @@
 {% extends 'base.html' %}
 
-
 {% block titulo %}
-<h2>Inicio<h2/>
+<h2>Invitado<h2/>
 {% endblock titulo %}
 
-
 {% block mensaje_inicio %}
-Proyecto 1- Mauro Silva
+{{invitado.nombre}}:
 {% endblock mensaje_inicio %}
+
 {% block contenido %}
+<li>Edad: {{invitado.edad}}</li>
+<li>Descripción: {{invitado.descripcion}}</li>
 {% endblock contenido %}

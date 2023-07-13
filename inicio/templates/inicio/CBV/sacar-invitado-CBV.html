@@ -1,22 +1,19 @@
 {% extends 'base.html' %}
 
 {% block titulo %}
-<h2>Modificar Invitado<h2/>
+<h2>Sacar Invitado<h2/>
 {% endblock titulo %}
 
 {% block mensaje_inicio %}
-Modificar Invitado:
+Sacar Invitado:
 {% endblock mensaje_inicio %}
 
 {% block contenido %}
 
-<form action='' method='POST'>
+<form action={%url 'inicio:sacar invitado' invitado.id %} method='POST'>
     {% csrf_token %}
-    <table>
-    {{formulario}}
-    </table>
-    
-    <button>Modificar</button>
+    <p>¿Desea sacar a {{invitado}}?</p>
+    <button>Confirmar</button>
     
 </form>
 

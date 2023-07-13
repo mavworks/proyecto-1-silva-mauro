@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title_head %}
+<title>Login<title/>
+{% endblock title_head %}
+
+{% block mensaje_inicio %}
+Login
+{% endblock mensaje_inicio %}
+
+{% block contenido %}
+
+<form action={%url 'usuario:login' %} method='POST'>
+    {% csrf_token %}
+    <table>
+    {{formulario}}
+    </table>
+
+    <button>Login</button>
+    
+</form>
+
+
+{% endblock contenido %}

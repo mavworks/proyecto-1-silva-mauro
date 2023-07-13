@@ -4,7 +4,7 @@ Como gerente el usuario podrá:
 
 -Permitir el ingreso a personas o "Invitados"
 -Comprobar la lista de Invitados a la fista
--Hacer que toque un Dj e indicar cuántas canciones tocará
+-Contratar un Dj e indicar cuántas canciones tocará
 -Abrir nuevas pistas asignandole una capacidad máxima de personas que pueden usarla.
 
 *********************************************************************************

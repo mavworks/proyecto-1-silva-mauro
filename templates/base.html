@@ -26,6 +26,13 @@
                 <a class="navbar-brand" href={% url 'inicio:listar invitados' %}>Lista de Invitados</a>
                 <a class="navbar-brand" href={% url 'inicio:listar djs' %}>Djs</a>
                 <a class="navbar-brand" href={% url 'inicio:listar pistas' %}>Pistas</a>
+                {% if request.user.is_authenticated %} 
+                <a class="navbar-brand" href='#'>{{request.user.username}}</a>
+                <a class="btn btn-secondary" href={% url 'usuario:logout' %}>Logout</a>
+                {% else %}
+                <a class="btn btn-primary" href={% url 'usuario:login' %}>Login</a>
+                <a class="btn btn-primary" href={% url 'usuario:registro' %}>Registro</a>
+                {% endif %}
             </div>
         </nav>
         {% block header %}
@@ -36,7 +43,7 @@
                         <div class="text-center text-white">
                             <h1 class="mb-5">
                                 {% block mensaje_inicio %}
-                                Tercer Pre-Entrega, Mauro Silva
+                                Proyecto 1 - Mauro Silva
                                 {% endblock mensaje_inicio %}
                             </h1>
                         </div>
@@ -55,9 +62,7 @@
                 <div class="row">
                     <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
                         <ul class="list-inline mb-2">
-                            <li class="list-inline-item"><a href="#!">About</a></li>
-                            <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="#!">Contact</a></li>
+                            <li class="list-inline-item"><a href={% url 'inicio:about' %}>About</a></li>
                         </ul>
                         <p class="text-muted small mb-4 mb-lg-0">&copy; Mauro Silva 2023. All Rights Reserved.</p>
                     </div>

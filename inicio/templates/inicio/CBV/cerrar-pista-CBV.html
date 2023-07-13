@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+<h2>Cerrar Pista<h2/>
+{% endblock titulo %}
+
+{% block mensaje_inicio %}
+Cerrar Pista:
+{% endblock mensaje_inicio %}
+
+{% block contenido %}
+
+<form action={%url 'inicio:cerrar pista' pista.id %} method='POST'>
+    {% csrf_token %}
+    <p>¿Desea cerrar {{dj}}?</p>
+    <button>Confirmar</button>
+    
+</form>
+
+
+{% endblock contenido %}

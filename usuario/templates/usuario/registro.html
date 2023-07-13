@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title_head %}
+<title>Registro<title/>
+{% endblock title_head %}
+
+{% block mensaje_inicio %}
+Crear usuario
+{% endblock mensaje_inicio %}
+
+{% block contenido %}
+
+<form action={%url 'usuario:registro' %} method='POST'>
+    {% csrf_token %}
+    <table>
+    {{formulario}}
+    </table>
+
+    <button>Crear usuario</button>
+    
+</form>
+
+
+{% endblock contenido %}

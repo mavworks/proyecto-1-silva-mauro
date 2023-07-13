@@ -12,15 +12,13 @@ Listado de Invitados en la fiesta:
 {% block contenido %}
 <button><a class='navbar-brand' href= {% url 'inicio:dejar entrar invitado' %}>Dejar entrar</a></button>
 
-<form action='' method='GET'>
-    {{formulario}}
-    <button>Buscar</button>
-</form>
 {% if invitados %}
 {% for invitado in invitados %}
 
 <li>
     {{invitado}}
+    <a href={% url 'inicio:mostrar invitado' invitado.id %}>Mostrar</a>
+    <a href={% url 'inicio:mod invitado' invitado.id %}>Modificar</a>
     <a href={% url 'inicio:sacar invitado' invitado.id %}>Sacar</a>
 </li>
 

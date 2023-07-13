@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+<h2>Abrir Pista<h2/>
+{% endblock titulo %}
+
+{% block mensaje_inicio %}
+Abrir Nueva Pista:
+{% endblock mensaje_inicio %}
+
+{% block contenido %}
+
+<form action={%url 'inicio:abrir pista' %} method='POST'>
+    {% csrf_token %}
+    <table>
+    {{form}}
+    </table>
+
+    <button>Abrir Pista</button>
+    
+</form>
+
+
+{% endblock contenido %}

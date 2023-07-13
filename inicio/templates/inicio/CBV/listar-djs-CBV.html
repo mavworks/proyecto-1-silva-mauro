@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+<h2>Listado<h2/>
+{% endblock titulo %}
+
+{% block mensaje_inicio %}
+
+Listado de Djs contratados:
+{% endblock mensaje_inicio %}
+
+{% block contenido %}
+<button><a class='navbar-brand' href= {% url 'inicio:contratar dj' %}>Contratar</a></button>
+
+{% if djs %}
+{% for dj in djs %}
+
+<li>
+    {{dj}}
+    <a href={% url 'inicio:mostrar dj' dj.id %}>Mostrar</a>
+    <a href={% url 'inicio:mod dj' dj.id %}>Modificar</a>
+    <a href={% url 'inicio:despedir dj' dj.id %}>Sacar</a>
+</li>
+
+{% endfor %}
+
+{% else %}
+<p>No se encuentra contrato.</p>
+{% endif %}
+{% endblock contenido %}
