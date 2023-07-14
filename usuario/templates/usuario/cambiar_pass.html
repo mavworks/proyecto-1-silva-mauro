@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title_head %}
+<title>Editar Contraseña<title/>
+{% endblock title_head %}
+
+{% block mensaje_inicio %}
+Cambiar Contraseña
+{% endblock mensaje_inicio %}
+
+{% block contenido %}
+
+<form action={%url 'usuario:cambiar_pass' %} method='POST'>
+    {% csrf_token %}
+    <table>
+    {{form}}
+    </table>
+    <button>Confirmar</button>
+</form>
+
+
+{% endblock contenido %}

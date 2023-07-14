@@ -25,3 +25,4 @@ class Pista(models.Model):
     
     def __str__(self):
         return f'Pista: {self.nombre} - Capacidad: {self.capacidad}'
+    
