@@ -5,21 +5,20 @@
 {% endblock titulo %}
 
 {% block mensaje_inicio %}
-
 Listado de Invitados en la fiesta:
 {% endblock mensaje_inicio %}
 
 {% block contenido %}
-<button><a class='navbar-brand' href= {% url 'inicio:dejar entrar invitado' %}>Dejar entrar</a></button>
+<button><a class='navbar-brand' href= {% url 'inicio:dejar_entrar_invitado' %}>Dejar entrar</a></button>
 
 {% if invitados %}
 {% for invitado in invitados %}
 
 <li>
     {{invitado}}
-    <a href={% url 'inicio:mostrar invitado' invitado.id %}>Mostrar</a>
-    <a href={% url 'inicio:mod invitado' invitado.id %}>Modificar</a>
-    <a href={% url 'inicio:sacar invitado' invitado.id %}>Sacar</a>
+    <a href={% url 'inicio:mostrar_invitado' invitado.id %}>Mostrar</a>
+    <a href={% url 'inicio:mod_invitado' invitado.id %}>Modificar</a>
+    <a href={% url 'inicio:sacar_invitado' invitado.id %}>Sacar</a>
 </li>
 
 {% endfor %}

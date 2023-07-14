@@ -1,22 +1,22 @@
 {% extends 'base.html' %}
 
 {% block titulo %}
-<h2>Abrir Pista<h2/>
+<h2>Editar Reseña:<h2/>
 {% endblock titulo %}
 
 {% block mensaje_inicio %}
-Abrir Nueva Pista:
+Editar Reseña {{resenia.titulo}}:
 {% endblock mensaje_inicio %}
 
 {% block contenido %}
 
-<form action={%url 'inicio:abrir pista' %} method='POST'>
+<form action={% url 'usuario:editar_resenia' resenia.id %} method='POST'>
     {% csrf_token %}
     <table>
     {{form}}
     </table>
-
-    <button>Abrir Pista</button>
+    
+    <button>Confirmar Edición</button>
     
 </form>
 

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+<h2>Perfil<h2/>
+{% endblock titulo %}
+
+{% block mensaje_inicio %}
+{{invitado.nombre}}:
+{% endblock mensaje_inicio %}
+
+{% block contenido %}
+<li>Nombre del usuario: {{request.user.first_name}}</li>
+<li>EMail: {{request.user.mail}}</li>
+<li>EMail: {{request.user.mail}}</li>
+{% endblock contenido %}

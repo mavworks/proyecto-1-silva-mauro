@@ -1,22 +1,22 @@
 {% extends 'base.html' %}
 
 {% block titulo %}
-<h2>Modificar Dj<h2/>
+<h2>Postear Reseña<h2/>
 {% endblock titulo %}
 
 {% block mensaje_inicio %}
-Modificar Dj:
+Redactar y Postear una Reseña
 {% endblock mensaje_inicio %}
 
 {% block contenido %}
 
-<form action={% url 'inicio:mod dj' dj.id %} method='POST'>
+<form action={%url 'usuario:postear' %} method='POST'>
     {% csrf_token %}
     <table>
     {{form}}
     </table>
-    
-    <button>Modificar</button>
+
+    <button>Postear</button>
     
 </form>
 

@@ -23,17 +23,17 @@
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
                 <a class="navbar-brand" href={% url 'inicio:inicio' %}>Inicio</a>
-                <a class="navbar-brand" href={% url 'inicio:listar invitados' %}>Lista de Invitados</a>
-                <a class="navbar-brand" href={% url 'inicio:listar djs' %}>Djs</a>
-                <a class="navbar-brand" href={% url 'inicio:listar pistas' %}>Pistas</a>
+                <a class="navbar-brand" href={% url 'inicio:listar_invitados' %}>Lista de Invitados</a>
+                <a class="navbar-brand" href={% url 'inicio:listar_djs' %}>Djs</a>
+                <a class="navbar-brand" href={% url 'usuario:resenias' %}>Reseñas</a>
                 {% if request.user.is_authenticated %} 
                 {% if request.user.infousuario.avatar %}
                 <img src={{request.user.infousuario.avatar.url}} alt = '' height = '45px' > </img>
                 {% endif %}
                 <a class="navbar-brand" href={% url 'usuario:editar_perfil' %}>{{request.user.username}}</a>
-                <a class="btn btn-secondary" href={% url 'usuario:logout' %}>Logout</a>
+                <a class="btn btn-secondary" href={% url 'usuario:logout' %}>Cerrar Sesión</a>
                 {% else %}
-                <a class="btn btn-primary" href={% url 'usuario:login' %}>Login</a>
+                <a class="btn btn-primary" href={% url 'usuario:login' %}>Iniciar Sesión</a>
                 <a class="btn btn-primary" href={% url 'usuario:registro' %}>Registro</a>
                 {% endif %}
             </div>
@@ -77,10 +77,6 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- * *                               SB Forms JS                               * *-->
-        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
     </body>
 </html>

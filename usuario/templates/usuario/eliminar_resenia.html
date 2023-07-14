@@ -1,18 +1,18 @@
 {% extends 'base.html' %}
 
 {% block titulo %}
-<h2>Cerrar Pista<h2/>
+<h2>Eliminar Reseña<h2/>
 {% endblock titulo %}
 
 {% block mensaje_inicio %}
-Cerrar Pista:
+Eliminar
 {% endblock mensaje_inicio %}
 
 {% block contenido %}
 
-<form action={%url 'inicio:cerrar pista' pista.id %} method='POST'>
+<form action={%url 'usuario:eliminar_resenia' resenia.id %} method='POST'>
     {% csrf_token %}
-    <p>¿Desea cerrar {{dj}}?</p>
+    <p>¿Desea eliminar la reseña{{resenia.titulo}}?</p>
     <button>Confirmar</button>
     
 </form>

@@ -10,16 +10,16 @@ Listado de Djs contratados:
 {% endblock mensaje_inicio %}
 
 {% block contenido %}
-<button><a class='navbar-brand' href= {% url 'inicio:contratar dj' %}>Contratar</a></button>
+<button><a class='navbar-brand' href= {% url 'inicio:contratar_dj' %}>Contratar</a></button>
 
 {% if djs %}
 {% for dj in djs %}
 
 <li>
     {{dj}}
-    <a href={% url 'inicio:mostrar dj' dj.id %}>Mostrar</a>
-    <a href={% url 'inicio:mod dj' dj.id %}>Modificar</a>
-    <a href={% url 'inicio:despedir dj' dj.id %}>Sacar</a>
+    <a href={% url 'inicio:mostrar_dj' dj.id %}>Mostrar</a>
+    <a href={% url 'inicio:mod_dj' dj.id %}>Modificar</a>
+    <a href={% url 'inicio:despedir_dj' dj.id %}>Sacar</a>
 </li>
 
 {% endfor %}

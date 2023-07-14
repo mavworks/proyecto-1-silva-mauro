@@ -10,7 +10,7 @@ Sacar Invitado:
 
 {% block contenido %}
 
-<form action={%url 'inicio:sacar invitado' invitado.id %} method='POST'>
+<form action={%url 'inicio:sacar_invitado' invitado.id %} method='POST'>
     {% csrf_token %}
     <p>¿Desea sacar a {{invitado}}?</p>
     <button>Confirmar</button>

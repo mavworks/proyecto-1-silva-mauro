@@ -1,22 +1,22 @@
 {% extends 'base.html' %}
 
 {% block titulo %}
-<h2>Modificar Invitado<h2/>
+<h2>Ingresar Invitado<h2/>
 {% endblock titulo %}
 
 {% block mensaje_inicio %}
-Modificar Invitado:
+Dejar entrar Invitado:
 {% endblock mensaje_inicio %}
 
 {% block contenido %}
 
-<form action={% url 'inicio:mod invitado' invitado.id %} method='POST'>
+<form action={%url 'inicio:dejar_entrar_invitado' %} method='POST'>
     {% csrf_token %}
     <table>
     {{form}}
     </table>
-    
-    <button>Modificar</button>
+
+    <button>Dejar entrar</button>
     
 </form>
 

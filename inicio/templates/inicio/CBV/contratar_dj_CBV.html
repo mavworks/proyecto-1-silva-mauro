@@ -1,22 +1,22 @@
 {% extends 'base.html' %}
 
 {% block titulo %}
-<h2>Modificar Pista<h2/>
+<h2>Contratar un Dj:<h2/>
 {% endblock titulo %}
 
 {% block mensaje_inicio %}
-Modificar Pista:
+Contratar un Dj:
 {% endblock mensaje_inicio %}
 
 {% block contenido %}
 
-<form action={% url 'inicio:mod pista' pista.id %} method='POST'>
+<form action={%url 'inicio:contratar_dj' %} method='POST'>
     {% csrf_token %}
     <table>
     {{form}}
     </table>
-    
-    <button>Modificar</button>
+
+    <button>Contratar</button>
     
 </form>
 

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+<h2>Listado<h2/>
+{% endblock titulo %}
+
+{% block mensaje_inicio %}
+Listado de Reseñas:
+{% endblock mensaje_inicio %}
+
+{% block contenido %}
+<button><a class='navbar-brand' href= {% url 'usuario:postear' %}>Postear Nueva Reseña</a></button>
+
+<form action={% url 'usuario:resenias' %} method='get'>
+    <table>
+        {{formulario}} 
+    </table>
+    <button>Buscar</button>
+</form>
+{% if resenias %}
+{% for resenia in resenias %}
+<li>
+    {{resenia}}
+    <a href={% url 'usuario:mostrar_resenia' resenia.id %}>Mostrar</a>
+    <a href={% url 'usuario:editar_resenia' resenia.id %}>Editar</a>
+    <a href={% url 'usuario:eliminar_resenia' resenia.id %}>Eliminar</a>
+</li>
+{% endfor %}
+{% else %}
+<p>No se encontro Reseña.</p>
+{% endif %}
+{% endblock contenido %}

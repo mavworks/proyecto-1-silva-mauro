@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+<h2>Reseña<h2/>
+{% endblock titulo %}
+
+{% block mensaje_inicio %}
+{{resenia.titulo}}:
+{% endblock mensaje_inicio %}
+
+{% block contenido %}
+<li>{{resenia.subtitulo}}</li>
+<li>{{resenia.contenido}}</li>
+<li>{{resenia.autor}}</li>
+<li>{{resenia.fecha_de_creacion}}</li>
+<img src={{request.resenia.fotoresenia.img_resenia.url}} alt = '' height = '' > </img>
+{% endblock contenido %}

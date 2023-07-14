@@ -10,7 +10,7 @@ Despedir dj:
 
 {% block contenido %}
 
-<form action={%url 'inicio:despedir dj' dj.id %} method='POST'>
+<form action={%url 'inicio:despedir_dj' dj.id %} method='POST'>
     {% csrf_token %}
     <p>¿Desea despedir a {{dj}}?</p>
     <button>Confirmar</button>

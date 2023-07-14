@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+<h2>Listado<h2/>
+{% endblock titulo %}
+
+{% block mensaje_inicio %}
+Listado de Djs:
+{% endblock mensaje_inicio %}
+
+{% block contenido %}
+<button><a class='navbar-brand' href= {% url 'inicio:contratar_dj' %}>Contratar</a></button>
+
+<form action={% url 'inicio:listar_djs' %} method='get'>
+    <table>
+        {{formulario}} 
+    </table>
+    <button>Buscar</button>
+</form>
+{% if djs %}
+{% for dj in djs %}
+<li>
+    {{dj}}
+    <a href={% url 'inicio:mostrar_dj' dj.id %}>Mostrar</a>
+    <a href={% url 'inicio:mod_dj' dj.id %}>Modificar</a>
+    <a href={% url 'inicio:despedir_dj' dj.id %}>Despedir</a>
+</li>
+{% endfor %}
+{% else %}
+<p>No se encontro Dj.</p>
+{% endif %}
+{% endblock contenido %}
