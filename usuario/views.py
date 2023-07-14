@@ -122,4 +122,5 @@ class MostrarResenia(DetailView):
     model = Resenia
     template_name = 'usuario/mostrar_resenia.html'    
     
-      
+def perfil(request):
+    return render(request, 'usuario/perfil.html')

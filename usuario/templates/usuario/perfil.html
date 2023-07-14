@@ -5,11 +5,14 @@
 {% endblock titulo %}
 
 {% block mensaje_inicio %}
-{{invitado.nombre}}:
+Usuario: {{user.first_name}}:
 {% endblock mensaje_inicio %}
 
 {% block contenido %}
-<li>Nombre del usuario: {{request.user.first_name}}</li>
-<li>EMail: {{request.user.mail}}</li>
-<li>EMail: {{request.user.mail}}</li>
+<li>Nombre del usuario: {{user.first_name}}</li>
+<li>email: {{user.email}}</li>
+<li>Apellido: {{user.last_name}}</li>
+<li><img src={{request.user.infousuario.avatar.url}} alt = '' height = '480px' > </img></li>
+<button><a href={% url 'usuario:editar_perfil' %}>Editar Perfil</a></button>
 {% endblock contenido %}
+

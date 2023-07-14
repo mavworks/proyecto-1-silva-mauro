@@ -30,7 +30,7 @@
                 {% if request.user.infousuario.avatar %}
                 <img src={{request.user.infousuario.avatar.url}} alt = '' height = '45px' > </img>
                 {% endif %}
-                <a class="navbar-brand" href={% url 'usuario:editar_perfil' %}>{{request.user.username}}</a>
+                <a class="navbar-brand" href={% url 'usuario:perfil' %}>{{request.user.username}}</a>
                 <a class="btn btn-secondary" href={% url 'usuario:logout' %}>Cerrar Sesión</a>
                 {% else %}
                 <a class="btn btn-primary" href={% url 'usuario:login' %}>Iniciar Sesión</a>
