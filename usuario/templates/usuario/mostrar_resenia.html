@@ -11,7 +11,8 @@
 {% block contenido %}
 <li>{{resenia.subtitulo}}</li>
 <li>{{resenia.contenido}}</li>
-<li>{{resenia.autor}}</li>
-<li>{{resenia.fecha_de_creacion}}</li>
+<li>Autor: {{resenia.autor}}</li>
+<li>Fecha de Posteo: {{resenia.fecha_de_creacion}}</li>
 <img src={{request.resenia.fotoresenia.img_resenia.url}} alt = '' height = '' > </img>
+<button type='button'><a class='navbar-brand' href={% url 'usuario:resenias' %}>Volver al listado</a> </button>
 {% endblock contenido %}

@@ -11,9 +11,9 @@ urlpatterns = [
     path('perfil/editar/pass', views.CambiarPass.as_view(), name = 'cambiar_pass'),
     path('resenias', views.listar_resenias, name = 'resenias'),
     path('resenias/postear', views.Postear.as_view(), name = 'postear'),
-    path('resenias/editar_resenia', views.editar_resenia, name = 'editar_resenia'),
-    path('resenias/eliminar_resenia', views.EliminarResenia.as_view(), name = 'eliminar_resenia'),
-    path('resenias/mostrar', views.MostrarResenia.as_view(), name = 'mostrar_resenia'),
+    path('resenias/editar_resenia/<int:pk>/', views.editar_resenia, name = 'editar_resenia'),
+    path('resenias/eliminar_resenia/<int:pk>/', views.EliminarResenia.as_view(), name = 'eliminar_resenia'),
+    path('resenias/mostrar/<int:pk>/', views.MostrarResenia.as_view(), name = 'mostrar_resenia'),
 
 
     

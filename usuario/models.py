@@ -13,7 +13,7 @@ class Resenia(models.Model):
     fecha_de_creacion = models.DateField(null=True)
     
     def __str__(self):
-        return f'Invitado: {self.nombre} - Edad: {self.edad}'
+        return f'Reseña: {self.titulo}'
     
 class FotoResenia(models.Model):
     resenia = models.OneToOneField(Resenia, on_delete=models.CASCADE)
