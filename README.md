@@ -6,7 +6,7 @@ Como gerente el usuario podrá:
 -Comprobar la lista de Invitados a la fiesta.
 -Contratar un Dj, indicar cuántas canciones tocará y en que fecha se presentará.
 -Comprobar la lista de Djs contratados.
--Postear Reseñas sobre la discoteca pudiendo cargar una foto a la misma.
+-Postear Reseñas sobre la discoteca
 -Ver el listado de reseñas posteadas y visualizarlas en una vista exclusiva.
 -Registrarse como usuario, iniciar sesión, cerrar sesión y visualizar y editar el perfil.
 
@@ -42,8 +42,7 @@ Esta reseña contará con:
  •Subtítulo
  •Contenido
  •Autor
- •Fecha de Creación
- •Una Imágen
+ •Fecha de Creació
 
 También mostrará la lista de reseñas, permitirá buscar en dicha lista y visualizar una reseña en una vista exclusiva.
 
