@@ -12,7 +12,9 @@ Usuario: {{user.first_name}}:
 <li>Nombre del usuario: {{user.first_name}}</li>
 <li>email: {{user.email}}</li>
 <li>Apellido: {{user.last_name}}</li>
+{% if user.infousuario.avatar %}
 <li><img src={{request.user.infousuario.avatar.url}} alt = '' height = '480px' > </img></li>
+{% endif %}
 <button><a href={% url 'usuario:editar_perfil' %}>Editar Perfil</a></button>
 {% endblock contenido %}
 

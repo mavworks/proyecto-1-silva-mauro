@@ -10,5 +10,10 @@
 
 {% block contenido %}
 <li>Canciones que toca: {{dj.canciones}}</li>
+{% if dj.descripcion %}
 <li>Descripción: {{dj.descripcion}}</li>
+
+{% endif %}
+<li>Fecha de Presentación: {{dj.fecha_de_presentacion}}</li>
+
 {% endblock contenido %}
