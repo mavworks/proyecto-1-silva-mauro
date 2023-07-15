@@ -1,14 +1,14 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate, login as django_login
-from usuario.form import FormularioRegistro, FormularioEditarPerfil, BuscarResenia, FormularioEditarResenia, FormularioEditarFotoResenia
+from usuario.form import FormularioRegistro, FormularioEditarPerfil, BuscarResenia
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import PasswordChangeView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
-from usuario.models import InfoUsuario, Resenia, FotoResenia
+from usuario.models import InfoUsuario, Resenia
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.views.generic.list import ListView
+
 from django.views.generic.detail import DetailView
 
 def login(request):
@@ -85,83 +85,13 @@ def listar_resenias(request):
     
     formulario = BuscarResenia()
     return render(request, 'usuario/resenias.html', {'formulario':formulario, 'resenias':resenias})
-  
-# class EditarResenia(LoginRequiredMixin, UpdateView):
-#     model = Resenia
-#     template_name = 'usuario/modificar_resenia.html'  
-#     fields = ['titulo', 'subtitulo', 'contenido', 'autor', 'fecha_de_creacion']
-#     success_url = reverse_lazy('usuario:listar_resenias')
-
-@login_required
-def editar_resenia(request, pk):
-    resenia = Resenia.objects.get(pk=pk)
-    foto_resenia, created = FotoResenia.objects.get_or_create(resenia=resenia)
-
-    if request.method == 'POST':
-        formulario = FormularioEditarResenia(request.POST, request.FILES, instance=resenia)
-        formulario_foto_resenia = FormularioEditarFotoResenia(request.POST, request.FILES, instance=foto_resenia)
-        if formulario.is_valid():
-            img_resenias = formulario.cleaned_data.get('foto_resenias')
-            if img_resenias:
-                foto_resenia.foto_resenia = img_resenias
-                foto_resenia.save()
-                formulario_foto_resenia.save()
-
-            formulario.save()
-            return redirect('inicio:inicio')
-        else:
-            return render(request, 'usuario/editar_resenia.html', {'form': formulario})
-
-    else:
-        formulario = FormularioEditarResenia(initial={'foto_resenias': foto_resenia.foto_resenia}, instance=resenia)
+ 
+class EditarResenia(LoginRequiredMixin, UpdateView):
+      model = Resenia
+      template_name = 'usuario/editar_resenia.html'  
+      fields = ['titulo', 'subtitulo', 'contenido', 'autor', 'fecha_de_creacion']
+      success_url = reverse_lazy('usuario:resenias') 
         
-        formulario_foto_resenia = FormularioEditarFotoResenia(instance=foto_resenia)
-
-    return render(request, 'usuario/editar_resenia.html', {'form': formulario, 'formulario_foto_resenia': formulario_foto_resenia, 'resenia': resenia})
-
-# @login_required
-# def editar_resenia(request,pk):
-#     resenia = Resenia.objects.get(pk=pk)
-#     foto_resenia, created = FotoResenia.objects.get_or_create(resenia=resenia)
-#     formulario = FormularioEditarResenia(request.POST, request.FILES, instance=resenia)
-#     formulario_foto_resenia = FormularioEditarFotoResenia(request.POST, request.FILES, instance=foto_resenia)
-#     if formulario.is_valid():
-#        img_resenias = formulario.cleaned_data.get('foto_resenias')
-#        if img_resenias:
-#             foto_resenia.foto_resenia = img_resenias
-#             foto_resenia.save()
-#             formulario_foto_resenia.save()
-
-#             formulario.save()
-#             return redirect('inicio:inicio')
-#         else:
-#             return render(request, 'usuario/editar_resenia.html', {'form': formulario})
-
-#     else:
-#         formulario = FormularioEditarResenia(initial={'foto_resenias': foto_resenia.foto_resenia}, instance=resenia)
-        
-#         formulario_foto_resenia = FormularioEditarFotoResenia(instance=foto_resenia)
-
-#     return render(request, 'usuario/editar_resenia.html', {'form': formulario, 'formulario_foto_resenia': formulario_foto_resenia, 'resenia': resenia})
-#     # foto_resenia = request.resenia.fotoresenia
-    # if request.method =='POST':
-    #     formulario = FormularioEditarResenia(request.POST, request.FILES, instance=request.resenia)
-    #     if formulario.is_valid():
-    #         img_resenias = formulario.cleaned_data.get('foto_resenias')
-    #         if img_resenias: 
-    #             foto_resenia.img_resenias = img_resenias
-    #             foto_resenia.save()
-            
-    #         formulario.save()
-    #         return redirect('inicio:inicio')
-    #     else:
-    #         return render(request, 'usuario/editar_resenia.html', {'formulario':formulario})
-        
-    # else:
-    #     formulario = FormularioEditarResenia(initial={'img_resenias': foto_resenia.img_resenias}, instance=request.resenia)
-    
-    # return render(request, 'usuario/editar_resenia.html', {'formulario':formulario}) 
-    
 class EliminarResenia(LoginRequiredMixin, DeleteView): 
     model = Resenia
     template_name = 'usuario/eliminar_resenia.html'  

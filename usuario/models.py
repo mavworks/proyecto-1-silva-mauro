@@ -15,6 +15,3 @@ class Resenia(models.Model):
     def __str__(self):
         return f'Reseña: {self.titulo}'
     
-class FotoResenia(models.Model):
-    resenia = models.OneToOneField(Resenia, on_delete=models.CASCADE)
-    foto_resenia = models.ImageField(upload_to='img_resenias', null=True, blank=True)

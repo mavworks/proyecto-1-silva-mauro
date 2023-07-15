@@ -5,14 +5,14 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
-from inicio.form import ContratarFormulario, BuscarDj
+from inicio.form import BuscarDj
 
 def inicio(request):
     return render(request, 'inicio/inicio.html')
 
 def about(request):
     return render(request, 'inicio/about.html')
-#Invitados
+
  
 class DejarEntrar(LoginRequiredMixin, CreateView):
     model = Invitado
@@ -41,7 +41,7 @@ class MostrarInvitado(DetailView):
     template_name = 'inicio/CBV/mostrar_invitado_CBV.html'
 
  
-#Djs
+
 class ContratarDj(LoginRequiredMixin, CreateView):
      model = Dj
      template_name = 'inicio/CBV/contratar_dj_CBV.html'
