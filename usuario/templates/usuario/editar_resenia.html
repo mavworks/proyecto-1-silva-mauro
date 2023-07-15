@@ -15,6 +15,15 @@ Editar Reseña {{resenia.titulo}}:
     <table>
     {{form}}
     </table>
+
+    <form action="{% url 'usuario:editar_resenia' pk=resenia.pk %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>
+            {{ form }}
+        </table>
+        {{ formulario_foto_resenia }}
+        <button>Confirmar Edición</button>
+    </form>
     
     <button>Confirmar Edición</button>
     
