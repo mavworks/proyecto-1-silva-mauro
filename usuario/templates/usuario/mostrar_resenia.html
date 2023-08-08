@@ -10,8 +10,9 @@
 
 {% block contenido %}
 <li>{{resenia.subtitulo}}</li>
-<li>{{resenia.contenido}}</li>
 <li>Autor: {{resenia.autor}}</li>
+<li>{{resenia.contenido | safe }}</li>
 <li>Fecha de Posteo: {{resenia.fecha_de_creacion}}</li>
 <button type='button'><a class='navbar-brand' href={% url 'usuario:resenias' %}>Volver al listado</a> </button>
 {% endblock contenido %}
+

@@ -13,7 +13,7 @@ def inicio(request):
 def about(request):
     return render(request, 'inicio/about.html')
 
- 
+
 class DejarEntrar(LoginRequiredMixin, CreateView):
     model = Invitado
     template_name = 'inicio/CBV/dejar_entrar_CBV.html'
@@ -40,13 +40,12 @@ class MostrarInvitado(DetailView):
     model = Invitado
     template_name = 'inicio/CBV/mostrar_invitado_CBV.html'
 
- 
-
+    
 class ContratarDj(LoginRequiredMixin, CreateView):
-     model = Dj
-     template_name = 'inicio/CBV/contratar_dj_CBV.html'
-     fields = ['nombre', 'canciones', 'descripcion','fecha_de_presentacion']
-     success_url = reverse_lazy('inicio:listar_djs')
+      model = Dj
+      template_name = 'inicio/CBV/contratar_dj_CBV.html'
+      fields = ['nombre', 'canciones', 'descripcion','fecha_de_presentacion', 'imagen_dj']
+      success_url = reverse_lazy('inicio:listar_djs')
 
 def listar_djs(request):
     
@@ -62,7 +61,7 @@ def listar_djs(request):
 class ModificarDj(LoginRequiredMixin, UpdateView):
     model = Dj
     template_name = 'inicio/CBV/modificar_dj_CBV.html'  
-    fields = ['nombre', 'canciones', 'descripcion']
+    fields = ['nombre', 'canciones', 'descripcion','fecha_de_presentacion', 'imagen_dj']
     success_url = reverse_lazy('inicio:listar_djs')
     
 class DespedirDj(LoginRequiredMixin, DeleteView): 

@@ -10,7 +10,7 @@ Crear usuario
 
 {% block contenido %}
 
-<form action={%url 'usuario:registro' %} method='POST'>
+<form action={%url 'usuario:registro' %} method='POST' enctype='multipart/form-data'>
     {% csrf_token %}
     <table>
     {{formulario}}

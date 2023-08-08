@@ -14,6 +14,7 @@ Redactar y Postear una Reseña
     {% csrf_token %}
     <table>
     {{form}}
+    {{form.media}}
     </table>
 
     <button>Postear</button>
@@ -22,3 +23,4 @@ Redactar y Postear una Reseña
 
 
 {% endblock contenido %}
+ 

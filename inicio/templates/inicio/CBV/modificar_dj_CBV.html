@@ -10,10 +10,12 @@ Modificar Dj {{dj.nombre}}:
 
 {% block contenido %}
 
-<form action={% url 'inicio:mod_dj' dj.id %} method='POST'>
+<form action={% url 'inicio:mod_dj' dj.id %} method='POST' enctype='multipart/form-data'>
     {% csrf_token %}
     <table>
     {{form}}
+    {{form.media}}
+
     </table>
     
     <button>Modificar</button>

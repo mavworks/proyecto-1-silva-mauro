@@ -10,10 +10,12 @@ Dejar entrar Invitado:
 
 {% block contenido %}
 
-<form action={%url 'inicio:dejar_entrar_invitado' %} method='POST'>
+<form action={%url 'inicio:dejar_entrar_invitado' %} method='POST' enctype='multipart/form-data'>
     {% csrf_token %}
     <table>
     {{form}}
+    {{form.media}}
+
     </table>
 
     <button>Dejar entrar</button>

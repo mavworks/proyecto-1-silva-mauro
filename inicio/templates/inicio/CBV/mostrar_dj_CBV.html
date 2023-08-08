@@ -11,9 +11,14 @@
 {% block contenido %}
 <li>Canciones que toca: {{dj.canciones}}</li>
 {% if dj.descripcion %}
-<li>Descripción: {{dj.descripcion}}</li>
+<li>Descripción: {{dj.descripcion | safe}}</li>
+
 
 {% endif %}
 <li>Fecha de Presentación: {{dj.fecha_de_presentacion}}</li>
+{% if dj.imagen_dj %}
+<li><img src={{dj.imagen_dj.url}} alt = '' height = '480px' > </img></li>
 
+
+{% endif %}
 {% endblock contenido %}

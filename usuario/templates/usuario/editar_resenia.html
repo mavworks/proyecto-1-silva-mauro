@@ -14,6 +14,7 @@ Editar Reseña {{resenia.titulo}}:
     {% csrf_token %}
     <table>
     {{form}}
+    {{form.media}}
     </table>
     
     <button type='submit'>Confirmar</button>

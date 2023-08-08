@@ -91,6 +91,7 @@ class EditarResenia(LoginRequiredMixin, UpdateView):
       template_name = 'usuario/editar_resenia.html'  
       fields = ['titulo', 'subtitulo', 'contenido', 'autor', 'fecha_de_creacion']
       success_url = reverse_lazy('usuario:resenias') 
+
         
 class EliminarResenia(LoginRequiredMixin, DeleteView): 
     model = Resenia

@@ -10,10 +10,11 @@ Contratar un Dj:
 
 {% block contenido %}
 
-<form action={%url 'inicio:contratar_dj' %} method='POST'>
+<form action={%url 'inicio:contratar_dj' %} method='POST' enctype='multipart/form-data'>
     {% csrf_token %}
     <table>
     {{form}}
+    {{form.media}}
     </table>
 
     <button>Contratar</button>

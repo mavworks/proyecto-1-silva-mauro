@@ -10,5 +10,5 @@
 
 {% block contenido %}
 <li>Edad: {{invitado.edad}}</li>
-<li>Descripción: {{invitado.descripcion}}</li>
+<li>Descripción: {{invitado.descripcion | safe}}</li>
 {% endblock contenido %}
