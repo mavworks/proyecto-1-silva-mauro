@@ -51,10 +51,13 @@ def editar_perfil(request):
         formulario = FormularioEditarPerfil(request.POST, request.FILES, instance=request.user)
         if formulario.is_valid():
             avatar = formulario.cleaned_data.get('avatar')
+            cumpleanios = formulario.cleaned_data.get('cumpleanios')
             if avatar: 
                 info_extra_usuario.avatar = avatar
                 info_extra_usuario.save()
-            
+            elif cumpleanios:
+                info_extra_usuario.cumpleanios = cumpleanios
+                info_extra_usuario.save()
             formulario.save()
             return redirect('inicio:inicio')
         else:
